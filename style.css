@@ -1,10 +1,10 @@
 body {
- background-color: rgb(253, 251, 251);
+  background-color: rgb(253, 251, 251);
 }
 
 header {
   display: fixed;
-  top: 0px;
+  top: 1px;
 }
 
 img {
@@ -17,10 +17,10 @@ h1 {
 }
 
 ul {
-   display: block;
+  display: block;
 }
 
-#artigo  {
+#artigo {
   font-family: 'Courier New', Courier, monospace;
   font-size: 30px;
   line-height: 10mm;
