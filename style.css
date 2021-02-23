@@ -1,5 +1,5 @@
 body {
-  background-color: aquamarine;
+  backgroundcolor: rgb(253, 251, 251)
 }
 
 img {
@@ -8,5 +8,9 @@ img {
 
 h1 {
   font-size: 50px;
-  color:blueviolet;
+  color: blueviolet;
+}
+
+.cabecalho {
+  top: 0px;
 }
