@@ -3,6 +3,7 @@ body {
 }
 
 header {
+  display: fixed;
   top: 0px;
 }
 
@@ -13,4 +14,14 @@ img {
 h1 {
   font-size: 50px;
   color: blueviolet;
+}
+
+ul {
+   display: block;
+}
+
+#artigo  {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 30px;
+  line-height: 10mm;
 }
