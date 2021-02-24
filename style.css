@@ -11,7 +11,7 @@ body {
 
 img {
   width: 20%;
-  /* margin-top: 150px; */
+   margin-top: 150px; 
 }
 
 h1 {
@@ -24,6 +24,7 @@ ul {
 }
 
 #artigo {
+  margin-bottom: 100px;
   font-family: 'Courier New', Courier, monospace;
   font-size: 30px;
   line-height: 30px;
@@ -31,6 +32,7 @@ ul {
 }
 
 #asidee {
+  margin-bottom: 100px;
   display: inline;
 }
 
@@ -40,4 +42,19 @@ p {
 
 footer {
   margin-top: 100px;
+}
+
+table, th, td {
+  border: 2px solid black;
+  border-collapse: collapse;
+}
+
+td {
+  height: 100px;
+}
+
+table {
+  margin-left: 45%;
+  background-color: aqua;
+  width: 20%;
 }
