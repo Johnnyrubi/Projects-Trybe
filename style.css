@@ -2,13 +2,16 @@ body {
   background-color: rgb(253, 251, 251);
 }
 
-header {
-  display: fixed;
-  top: 1px;
+#cabecalho {
+  background-color: green;
+  position: fixed;
+  top: 0px;
+  width: 100%;
 }
 
 img {
   width: 20%;
+  /* margin-top: 150px; */
 }
 
 h1 {
@@ -23,5 +26,18 @@ ul {
 #artigo {
   font-family: 'Courier New', Courier, monospace;
   font-size: 30px;
-  line-height: 10mm;
+  line-height: 30px;
+  display: inline;
+}
+
+#asidee {
+  display: inline;
+}
+
+p {
+  display:inline;
+}
+
+footer {
+  margin-top: 100px;
 }
