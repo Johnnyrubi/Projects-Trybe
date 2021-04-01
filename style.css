@@ -6,9 +6,12 @@
   font-style: unset;
   font-size: 40px;
   color: antiquewhite;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 .tabelao {
   border: solid black 1px;
   border-collapse: solid;
+  margin: 1px;
+  padding: 1px;
 }
