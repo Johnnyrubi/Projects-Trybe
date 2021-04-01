@@ -5,7 +5,7 @@
 .paragrafo {
   font-style: unset;
   font-size: 40px;
-  color: black;
+  color: antiquewhite;
   font-family: 'Courier New', Courier, monospace;
   letter-spacing: 1px;
 }
@@ -22,4 +22,14 @@
   width: 100%;
   background-color: blueviolet;
   height: 100px;
-  top: 0px;
+
+}
+
+.artigo {
+  display: inline-block;
+
+}
+
+.section {
+  display: inline-block;
+}
