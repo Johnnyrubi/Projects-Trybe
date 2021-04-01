@@ -15,3 +15,10 @@
   margin: 1px;
   padding: 1px;
 }
+
+.cabeca {
+  position: fixed;
+  width: 100%;
+  background-color: blueviolet;
+  height: 100px;
+}
