@@ -1,5 +1,5 @@
 .corpo {
-  background-color: rgb(235, 251, 251);
+  background-color: rgb(253, 251, 251);
 }
 
 .cabeca {
@@ -9,4 +9,10 @@
 .paragrafo {
   font-style: unset;
   font-size: 40px;
+  color: antiquewhite;
+}
+
+.tabelao {
+  border: solid black 1px;
+  border-collapse: solid;
 }
