@@ -1,60 +1,12 @@
-body {
-  background-color: rgb(253, 251, 251);
+.corpo {
+  background-color: rgb(235, 251, 251);
 }
 
-#cabecalho {
-  background-color: green;
-  position: fixed;
-  top: 0px;
-  width: 100%;
+.cabeca {
+
 }
 
-img {
-  width: 20%;
-   margin-top: 150px; 
-}
-
-h1 {
-  font-size: 50px;
-  color: blueviolet;
-}
-
-ul {
-  display: block;
-}
-
-#artigo {
-  margin-bottom: 100px;
-  font-family: 'Courier New', Courier, monospace;
-  font-size: 30px;
-  line-height: 30px;
-  display: inline;
-}
-
-#asidee {
-  margin-bottom: 100px;
-  display: inline;
-}
-
-p {
-  display:inline;
-}
-
-footer {
-  margin-top: 100px;
-}
-
-table, th, td {
-  border: 2px solid black;
-  border-collapse: collapse;
-}
-
-td {
-  height: 100px;
-}
-
-table {
-  margin-left: 45%;
-  background-color: aqua;
-  width: 20%;
+.paragrafo {
+  font-style: unset;
+  font-size: 40px;
 }
