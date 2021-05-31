@@ -12,10 +12,16 @@ export default class MovieDetails extends Component {
       loading: true,
     };
     this.requisitonMovie = this.requisitonMovie.bind(this);
+    this.deleteMovie = this.deleteMovie.bind(this);
   }
 
   componentDidMount() {
     this.requisitonMovie();
+  }
+
+  async deleteMovie() {
+    const { match: { params: { id } } } = this.props;
+    await movieAPI.deleteMovie(id);
   }
 
   async requisitonMovie() {
@@ -42,6 +48,7 @@ export default class MovieDetails extends Component {
         <p>{ `Rating: ${rating}` }</p>
         <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
         <Link to="/">VOLTAR</Link>
+        <Link to="/" onClick={ this.deleteMovie }>DELETAR</Link>
       </div>
     );
   }
