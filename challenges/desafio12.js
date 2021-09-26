@@ -1,4 +1,3 @@
-use("aggregations");
 db.trips.aggregate([
   { $group: { _id: { day: { $dayOfWeek: "$startTime" }, estacaoNome: "$startStationName" }, soma: { $sum: 1 } } },
   { $project: { nomeEstacao: "$_id.estacaoNome", total: "$soma", _id: 0 } },
