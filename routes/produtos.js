@@ -1,6 +1,6 @@
 const route = require('express').Router();
-const {
-  validationProducts
-} = require
+const controller = require('../controllers/controllerProdutos');
 
-app.use('/', validationProducts)
+route.post('/', controller.create);
+
+module.exports = route;
