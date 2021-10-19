@@ -8,8 +8,13 @@ const create = async (name, quantity) => {
     return result;
 };
 
-const getAll = async (id) => {
-  
-}
+const getAll = async () => {
+  const result = await model.getAll();
+};
 
-module.exports = { create };
+const getId = async (id) => {
+  produtos.validationId(id);
+  const result = await model.getId(id);
+};
+
+module.exports = { create, getId, getAll};
