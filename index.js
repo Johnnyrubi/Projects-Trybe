@@ -11,6 +11,8 @@ app.get('/', (_request, response) => {
   response.send();
 });
 
+app.get('/products', )
+
 app.use('/products', produtos);
 
 app.use(({ status, err }, _res, res, _next) =>

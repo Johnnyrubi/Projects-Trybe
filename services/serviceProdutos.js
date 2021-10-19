@@ -8,4 +8,8 @@ const create = async (name, quantity) => {
     return result;
 };
 
+const getAll = async (id) => {
+  
+}
+
 module.exports = { create };
