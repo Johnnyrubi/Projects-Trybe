@@ -1,6 +1,7 @@
 const route = require('express').Router();
+const rescue = require('express-rescue');
 const controller = require('../controllers/controllerProdutos');
 
-route.post('/', controller.create);
+route.post('/', rescue(controller.create));
 
 module.exports = route;

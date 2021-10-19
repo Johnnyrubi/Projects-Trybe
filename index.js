@@ -13,4 +13,7 @@ app.get('/', (_request, response) => {
 
 app.use('/products', produtos);
 
+app.use(({ status, err }, _res, res, _next) =>
+  res.status(status).json({ err }));
+
 app.listen(PORT);
