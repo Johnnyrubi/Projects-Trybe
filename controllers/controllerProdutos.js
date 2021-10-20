@@ -17,4 +17,11 @@ const getId = async (req, res) => {
   return res.status(200).json(result);
 };
 
+const update = async (req, res) => {
+  const { id } = req.params;
+  const { name, quantity } = req.body;
+  const result = await service.updateById(name, quantity, id);
+  return res.status(200).json(result);
+};
+
 module.exports = { create, getId, getAll };

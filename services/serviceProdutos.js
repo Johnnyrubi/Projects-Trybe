@@ -19,4 +19,12 @@ const getId = async (id) => {
   return result;
 };
 
+const updateById = async (name, quantity, id) => {
+  await produtos.validationId(id);
+  produtos.validationName(name);
+  produtos.validationQuantity(quantity);
+  const result = await 
+
+}
+
 module.exports = { create, getId, getAll };

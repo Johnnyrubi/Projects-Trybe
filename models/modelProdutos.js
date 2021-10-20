@@ -13,4 +13,7 @@ const getId = async (id) => products()
 const getAll = async () => products()
   .then((prod) => prod.find().toArray());
 
+const updateById = async (id, name, quantity) => products()
+  .then((prod) => prod.updateOne({ _id: ObjectId(id) }, { $set: { name, quantity } }));
+
 module.exports = { create, getId, getAll };
