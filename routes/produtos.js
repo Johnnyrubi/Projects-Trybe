@@ -8,7 +8,7 @@ route.get('/:id', rescue(controller.getId));
 
 route.get('/', rescue(controller.getAll));
 
-route.put('/:id', rescue(controller.update));
+route.put('/:id', rescue(controller.updateById));
 
 route.delete('/:id', rescue(controller.deleteById));
 

@@ -23,14 +23,13 @@ const updateById = async (name, quantity, id) => {
   await produtos.validationId(id);
   produtos.validationName(name);
   produtos.validationQuantity(quantity);
-  const result = await model.updateById(id);
-  return result;
+  await model.updateById(id, name, quantity);
+  return ({ id, name, quantity });
 };
 
 const deleteById = async (id) => {
   await produtos.validationId(id);
-  const result = await model.deleteById(id);
-  return result;
+  await model.deleteById(id);
 };
 
 module.exports = { create, getId, getAll, updateById, deleteById };
