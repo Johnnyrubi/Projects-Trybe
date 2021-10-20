@@ -16,4 +16,4 @@ const getAll = async () => products()
 const updateById = async (id, name, quantity) => products()
   .then((prod) => prod.updateOne({ _id: ObjectId(id) }, { $set: { name, quantity } }));
 
-module.exports = { create, getId, getAll };
+module.exports = { create, getId, getAll, updateById };

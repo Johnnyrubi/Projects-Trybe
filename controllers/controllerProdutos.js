@@ -24,4 +24,4 @@ const update = async (req, res) => {
   return res.status(200).json(result);
 };
 
-module.exports = { create, getId, getAll };
+module.exports = { create, getId, getAll, update };
