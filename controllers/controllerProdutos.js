@@ -8,12 +8,13 @@ const create = async (req, res) => {
 
 const getAll = async (req, res) => {
   const result = await service.getAll();
-  return res.status(200).json(result.ops[]);
-}
+  return res.status(200).json(result);
+};
 
 const getId = async (req, res) => {
+  const { id } = req.params;
   const result = await service.getId(id);
-  return res.status(200).json(result.ops[0]);
-}
+  return res.status(200).json(result);
+};
 
 module.exports = { create, getId, getAll };

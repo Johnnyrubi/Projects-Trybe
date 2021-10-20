@@ -10,11 +10,13 @@ const create = async (name, quantity) => {
 
 const getAll = async () => {
   const result = await model.getAll();
+  return result;
 };
 
 const getId = async (id) => {
-  produtos.validationId(id);
+  await produtos.validationId(id);
   const result = await model.getId(id);
+  return result;
 };
 
-module.exports = { create, getId, getAll};
+module.exports = { create, getId, getAll };

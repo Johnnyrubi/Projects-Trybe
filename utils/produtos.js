@@ -27,9 +27,12 @@ const validationQuantity = (quantity) => {
 };
 
 const validationId = async (id) => {
+  if (!ObjectId.isValid(id)) {
+     throw err({ status: 422, message: '"Wrong id format"' });
+  }
+  
   const exists = await getId(id);
   if (!exists) throw err({ status: 422, message: '"Id" not exists' });
-  if (!ObjectId.isValid(id)) throw err({ status: 422, message: '"Wrong id format"' });
 };
 
 module.exports = { validationName, validationId, validationQuantity };

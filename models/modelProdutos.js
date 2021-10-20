@@ -11,5 +11,6 @@ const getId = async (id) => products()
   .then((prod) => prod.findOne(ObjectId(id)));
 
 const getAll = async () => products()
-  .then((prod) =>  prod.find().toArray());
-module.exports = { create, getId };
+  .then((prod) => prod.find().toArray());
+
+module.exports = { create, getId, getAll };
