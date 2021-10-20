@@ -10,4 +10,6 @@ route.get('/', rescue(controller.getAll));
 
 route.put('/:id', rescue(controller.update));
 
+route.delete('/:id', rescue(controller.deleteById));
+
 module.exports = route;
