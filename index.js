@@ -16,7 +16,12 @@ app.use('/sales', vendas);
 
 app.use('/products', produtos);
 
-app.use(({ status, err }, _res, res, _next) =>
-  res.status(status).json({ err }));
+app.use((erro, _res, res, _next) => {
+  if (erro.status) {
+    const { status, err } = erro;
+    res.status(status).json({ err });
+  }
+  res.status(500).json(erro);
+});
 
 app.listen(PORT);

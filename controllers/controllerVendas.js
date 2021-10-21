@@ -6,4 +6,15 @@ const create = async (req, res) => {
   return res.status(200).json(result.ops[0]);
 };
 
-module.exports = { create };
+const getAll = async (req, res) => {
+  const result = await service.getAll();
+  return res.status(200).json();
+};
+
+const getById = async (req, res) => {
+  const { id } = req.params;
+  const result = await service.getById(id);
+  return res.status(200).json(result);
+};
+ 
+module.exports = { create, getAll, getById };
