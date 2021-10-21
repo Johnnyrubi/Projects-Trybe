@@ -14,9 +14,15 @@ const getAll = async () => {
 };
 
 const getById = async (id) => {
-  await utils.validationIdByVendas(id);
+  await utils.validationIdByProdutos(id);
   const result = await model.getById(id);
   return result;
 };
 
-module.exports = { create, getById, getAll };
+const updateById = async (id, quantity, productId) => {
+  utils.updateById(quantity);
+  const result = await model.updateById(id, quantity, productId);
+  return result;
+};
+
+module.exports = { create, getById, getAll, updateById };

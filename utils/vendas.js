@@ -32,4 +32,10 @@ const validationQuantity = (itens) => {
   if (!total) throw err({ message: 'Wrong product ID or invalid quantity' });
 };
 
-module.exports = { validationIdByProdutos, validationQuantity, validationIdByVendas };
+const updateById = (quantity) => {
+  if (typeof quantity !== 'number' || quantity <= 0) {
+    throw err({ message: 'Wrong product ID or invalid quantity' });
+  }
+};
+
+module.exports = { validationIdByProdutos, validationQuantity, validationIdByVendas, updateById };

@@ -8,4 +8,6 @@ route.get('/:id', rescue(controller.getById));
 
 route.get('/', rescue(controller.getAll));
 
+route.put('/:id', rescue(controller.updateById));
+
 module.exports = route;
