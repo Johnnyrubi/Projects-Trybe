@@ -27,7 +27,7 @@ const updateById = async (req, res) => {
 const deleteById = async (req, res) => {
   const { id } = req.params;
   await service.deleteById(id);
-  return res.status(200).json({ message: 'deletado');
+  return res.status(200).json({ message: 'deletado' });
 };
 
 module.exports = { create, getId, getAll, updateById, deleteById };
