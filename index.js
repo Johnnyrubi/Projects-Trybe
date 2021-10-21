@@ -17,6 +17,7 @@ app.use('/sales', vendas);
 app.use('/products', produtos);
 
 app.use((erro, _res, res, _next) => {
+  console.log(erro);
   if (erro.status) {
     const { status, err } = erro;
     res.status(status).json({ err });

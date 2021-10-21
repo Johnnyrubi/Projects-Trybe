@@ -2,7 +2,7 @@ const model = require('../models/modelVendas');
 const utils = require('../utils/vendas');
 
 const create = async (itensSold) => {
-  await utils.validationId(itensSold);
+  await utils.validationIdByProdutos(itensSold);
   utils.validationQuantity(itensSold);
   const result = await model.create(itensSold);
   return result;
@@ -14,6 +14,9 @@ const getAll = async () => {
 };
 
 const getById = async (id) => {
-  const utils.
-}
-module.exports = { create };
+  await utils.validationIdByVendas(id);
+  const result = await model.getById(id);
+  return result;
+};
+
+module.exports = { create, getById, getAll };

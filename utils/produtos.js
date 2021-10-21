@@ -1,7 +1,7 @@
 const { ObjectId } = require('mongodb');
 const { getId } = require('../models/modelProdutos');
 
-const err = ({ status, message }) => ({
+const err = ({ message, status = 422 }) => ({
   status,
   err: {
     code: 'invalid_data',
@@ -11,9 +11,9 @@ const err = ({ status, message }) => ({
 
 const validationName = (name) => {
   const minimumLength = 5;
-  if (typeof name !== 'string') throw err({ status: 422, message: '"name" must be a string' });
+  if (typeof name !== 'string') throw err({ message: '"name" must be a string' });
   if (name.length < minimumLength) {
-    throw err({ status: 422, message: '"name" length must be at least 5 characters long' });
+    throw err({ message: '"name" length must be at least 5 characters long' });
   }
 };
 
