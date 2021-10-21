@@ -16,4 +16,4 @@ const getById = async (id) => sales()
 const updateById = async (id, quantity, productId) => sales()
   .then((db) => db.updateOne({ _id: ObjectId(id) }, { $set: { quantity, productId } }));
 
-module.exports = { create, getById, getAll, updateById};
+module.exports = { create, getById, getAll, updateById };
