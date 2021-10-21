@@ -1,5 +1,6 @@
 const express = require('express');
 const produtos = require('./routes/produtos');
+const vendas = require('./routes/vendas');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -10,6 +11,8 @@ app.use(express.json());
 app.get('/', (_request, response) => {
   response.send();
 });
+
+app.use('/sales', vendas);
 
 app.use('/products', produtos);
 
