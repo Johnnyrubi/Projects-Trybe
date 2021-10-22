@@ -1,3 +1,4 @@
+const { ObjectId } = require('mongodb');
 const products = require('../models/modelProdutos');
 const sales = require('../models/modelVendas');
 
@@ -16,15 +17,6 @@ const validationIdByProdutos = async (itens) => {
   if (!result) throw err({ message: 'Wrong product ID or invalid quantity' });
 };
 
-const validationIdByVendas = async (id) => {
-  // if (!ObjectId.isValid(id)) {
-  //   throw err({ status: 422, message: '"Wrong id format"' });
-//  }
-  const verification = await sales.getById(id);
-  console.log(verification);
-  if (!verification) throw err({ code: 'not_found', status: 404, message: 'Sale not Found' });
-};
-
 const validationQuantity = (itens) => {
   const total = itens.every(({ quantity }) =>
     (typeof quantity === 'number') && (quantity > 0));
@@ -37,4 +29,17 @@ const updateById = (quantity) => {
   }
 };
 
-module.exports = { validationIdByProdutos, validationQuantity, validationIdByVendas, updateById };
+const verificationId = async (id) => {
+  if (!ObjectId.isValid(id)) {
+    throw err({ status: 422, message: '"Wrong id format"' });
+ }
+  const verification = await sales.getById(id);
+  if (!verification) throw err({ code: 'not_found', status: 404, message: 'Sale not Found' });
+};
+
+module.exports = { 
+  validationIdByProdutos, 
+  validationQuantity, 
+  updateById, 
+  verificationId,
+};

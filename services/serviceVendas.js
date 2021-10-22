@@ -14,7 +14,7 @@ const getAll = async () => {
 };
 
 const getById = async (id) => {
-  await utils.validationIdByProdutos(id);
+  await utils.verificationId(id);
   const result = await model.getById(id);
   return result;
 };
@@ -26,9 +26,8 @@ const updateById = async (id, quantity, productId) => {
 };
 
 const deleteById = async (id) => {
+  await utils.verificationId(id);
   await model.deleteById(id);
-  const result = await model.getById(id);
-  return result;
 };
 
 module.exports = { create, getById, getAll, updateById, deleteById };

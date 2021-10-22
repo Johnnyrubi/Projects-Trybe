@@ -24,5 +24,11 @@ const updateById = async (req, res) => {
   await service.updateById(id, quantity, productId);
   return res.status(200).json({ _id: id, itensSold });
 };
+
+const deleteById = async (req, res) => {
+  const { id } = req.params;
+  await service.deleteById(id);
+  return res.status(200).json();
+};
  
-module.exports = { create, getAll, getById, updateById };
+module.exports = { create, getAll, getById, updateById, deleteById };
