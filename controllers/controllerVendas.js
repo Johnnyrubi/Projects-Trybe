@@ -8,13 +8,13 @@ const create = async (req, res) => {
 
 const getAll = async (req, res) => {
   const result = await service.getAll();
-  return res.status(200).json(result);
+  return res.status(200).json({ sales: result });
 };
 
 const getById = async (req, res) => {
   const { id } = req.params;
   const result = await service.getById(id);
-  return res.status(200).json(result);
+  return res.status(200).json({ sales: result });
 };
 
 const updateById = async (req, res) => {
