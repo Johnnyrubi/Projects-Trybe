@@ -26,7 +26,7 @@ const updateById = async (id, quantity, productId) => {
 };
 
 const deleteById = async (id) => {
-  await utils.verificationId(id);
+  await utils.verificationIdForDelete(id);
   await model.deleteById(id);
 };
 
