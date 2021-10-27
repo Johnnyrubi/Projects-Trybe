@@ -1,4 +1,5 @@
 const express = require('express');
+const usuarios = require('../router/usuarios');
 
 const app = express();
 
@@ -8,4 +9,5 @@ app.get('/', (request, response) => {
 });
 // Não remover esse end-point, ele é necessário para o avaliador
 
+app.use('/users', usuarios);
 module.exports = app;
