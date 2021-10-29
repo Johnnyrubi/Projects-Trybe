@@ -1,33 +1,45 @@
 const model = require('../models/modelUsuario');
 
-const err = ({});
-
+const err = ({ statusCode, message }) => ({
+  statusCode,
+  message,
+});
 
 const validationCadastrationName = (name) => {
-  if(!name) throw err({ status: 400, message: "Invalid entries. Try again." });
+  if (!name) throw err({ statusCode: 400, message: 'Invalid entries. Try again.' });
 };
 
 const validationCadastrationEmail = async (email) => {
-  if (!email) throw err({ status: 400, message: "Invalid entries. Try again." });
+  const validEmail = /^[\w.]+@[a-z]+\.\w{2,3}$/g.test(email);
+  if (!email) throw err({ statusCode: 400, message: 'Invalid entries. Try again.' });
+  if (!validEmail) {
+     throw err({ statusCode: 400, message: 'Invalid entries. Try again.' });
+  }
   const exists = await model.findEmail(email);
-  if (exists) throw err ({status: 400, message: "Email already registeredm" });
+  console.log(exists);
+  if (exists) throw err({ statusCode: 400, message: 'Email already registeredm' });
 };
 
 const validationCadastrationPassword = (password) => {
-  if(!password) throw err({ status: 400, message: "Invalid entries. Try again."});
+  if (!password) throw err({ statusCode: 400, message: 'Invalid entries. Try again.' });
 };
 
 // const validationRole = (role) => {
 
 // };
 
-const validationtionLoginEmail = (email) => {
 
-}
+const validationtionLoginEmail = async (email) => {
+  if (!email) throw err({ statusCode: 401, message: 'All fields must be filled' });
+  const exists = await model.findEmail(email);
+  if (!exists) throw err({ statusCode: 401, message: 'Incorret username or passwords' });
+  return exists.password;
+};
 
-const validationLoginPassword = (password) => {
-  
-}
+const validationLoginPassword = async (password, exists) => {
+  if (!password) throw err({ statusCode: 401, message: 'All fields must be filled' });
+  if (exists !== password) throw err({ statusCode: 400, message: 'Incorret username or passwordd' });
+};
 
 module.exports = { 
   validationCadastrationEmail, 
