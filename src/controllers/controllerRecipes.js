@@ -1,10 +1,10 @@
 const service = require('../services/serviceRecipe');
 
-const cadastrationRecipes = async (req, res) => {
+const create = async (req, res) => {
 // const { name, ingredients, preparation } = req.body;
-service.createRecipes(req.body);
-return res.status(201).json({})
+  const result = service.create(req.body);
+  return res.status(201).json(result);
 
 };
 
-module.exports = { cadastrationRecipes };
+module.exports = { create };
