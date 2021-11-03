@@ -10,7 +10,6 @@ const create = async (req, res) => {
 const login = async (req, res) => {
   const { email, password } = req.body;
   const result = await service.login(email, password);
-  console.log(result);
   const token = criationToken(result);
   return res.status(200).json({ token });
 };
