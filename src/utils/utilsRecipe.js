@@ -18,8 +18,15 @@ const validationIngredients = (ingredients) => {
   if (!ingredients) throw err({ statusCode: 400, message: 'Invalid entries, Try again' });
 };
 
+const validationId = async (id) => {
+  const exists = await model.getById(id);
+  if (!exists) throw err({ statusCode: 400, message: 'recipe not found' });
+  return exists;
+};
+
 module.exports = {
   validationIngredients,
   validationPreparation,
   validationName,
+  validationId,
 };

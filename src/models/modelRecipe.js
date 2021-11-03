@@ -7,6 +7,9 @@ const create = async (name, ingredients, preparation, id) => recipes()
   .then((col) => col.insertOne({ name, ingredients, preparation, id }));
 
 const getAll = async () => recipes()
-  .then((col) => col.find());
+  .then((col) => col.find().toArray());
 
-module.exports = { create, getAll };
+const getById = async (id) => recipes()
+  .then((col) => col.findOne(id));
+
+module.exports = { create, getAll, getById };

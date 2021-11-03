@@ -12,4 +12,10 @@ const getAll = async (req, res) => {
   return res.status(200).json(result);
 };
 
-module.exports = { create, getAll };
+const getById = async (req, res) => {
+  const id = req.body;
+  const result = service.getById(id);
+  return res.status(201).json(result);
+};
+
+module.exports = { create, getAll, getById };

@@ -6,4 +6,6 @@ route.post('/recipes', rescue(controller.create));
 
 route.get('/recipes', rescue(controller.getAll));
 
+route.get('/recipes/:id', rescue(controller.getById));
+
 module.exports = route;

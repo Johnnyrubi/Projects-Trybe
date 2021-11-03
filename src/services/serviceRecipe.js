@@ -16,4 +16,10 @@ const getAll = async () => {
   return result;
 };
 
-module.exports = { create, getAll };
+const getById = async (id) => {
+  utils.validationId(id);
+  const result = await model.getById(id);
+  return result;
+};
+
+module.exports = { create, getAll, getById };
