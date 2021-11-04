@@ -11,7 +11,6 @@ const validationName = (name) => {
 
 const validationPreparation = (preparation) => {
   if (!preparation) throw err({ statusCode: 400, message: 'Invalid entries. Try again.' });
-
 };
 
 const validationIngredients = (ingredients) => {
