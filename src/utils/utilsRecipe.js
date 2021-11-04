@@ -1,3 +1,4 @@
+const { ObjectId } = require('mongodb');
 const model = require('../models/modelRecipe');
 
 const err = ({ statusCode, message }) => ({
@@ -18,8 +19,9 @@ const validationIngredients = (ingredients) => {
 };
 
 const validationId = async (id) => {
+  if (!ObjectId.isValid(id)) throw err({ statusCode: 400, message: 'Invalid ID' });
   const exists = await model.getById(id);
-  if (!exists) throw err({ statusCode: 400, message: 'recipe not found' });
+  if (!exists) throw err({ statusCode: 404, message: 'recipe not found' });
   return exists;
 };
 

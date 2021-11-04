@@ -1,3 +1,4 @@
+const { ObjectId } = require('mongodb');
 const connection = require('./connection');
 
 const recipes = async () => connection()
@@ -9,8 +10,8 @@ const create = async (name, ingredients, preparation, userId) => recipes()
 const getAll = async () => recipes()
   .then((col) => col.find().toArray());
 
-const getById = async (id) => recipes()
-  .then((col) => col.findOne(id));
+const getById = async (_id) => recipes()
+  .then((col) => col.findOne(ObjectId(_id)));
 
 const findByEmail = async (email) => recipes()
   .then((col) => col.findOne(email));

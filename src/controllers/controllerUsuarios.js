@@ -4,6 +4,7 @@ const criationToken = require('../utils/generateToken');
 const create = async (req, res) => {
   // const { name, email, password } = req.body;
   const user = await service.create(req.body);
+  delete user.password;
   return res.status(201).json({ user });
 }; 
 

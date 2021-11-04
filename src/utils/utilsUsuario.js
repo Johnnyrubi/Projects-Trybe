@@ -17,7 +17,7 @@ const validationCadastrationEmail = async (email) => {
   }
   const exists = await model.findEmail(email);
   console.log(exists);
-  if (exists) throw err({ statusCode: 400, message: 'Email already registered' });
+  if (exists) throw err({ statusCode: 409, message: 'Email already registered' });
 };
 
 const validationCadastrationPassword = (password) => {
@@ -30,14 +30,20 @@ const validationCadastrationPassword = (password) => {
 
 const validationtionLoginEmail = async (email) => {
   if (!email) throw err({ statusCode: 401, message: 'All fields must be filled' });
+//   const validEmail = /^[\w.]+@[a-z]+\.\w{2,3}$/g.test(email);
+//   if (!validEmail) {
+//     throw err({ statusCode: 401, message: 'Incorrect username or password' });
+//  }
   const exists = await model.findEmail(email);
   if (!exists) throw err({ statusCode: 401, message: 'Incorrect username or password' });
-  return exists.password;
+  return (exists.password);
 };
 
 const validationLoginPassword = async (password, exists) => {
   if (!password) throw err({ statusCode: 401, message: 'All fields must be filled' });
-  if (exists !== password) throw err({ statusCode: 400, message: 'Incorret username or password' });
+  if (exists !== password) {
+  throw err({ statusCode: 400, message: 'Incorrect username or password' });
+  }
 };
 
 module.exports = { 

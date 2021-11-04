@@ -10,7 +10,6 @@ const create = async ({ name, email, password, role = 'user' }) => {
 };
 
 const login = async (email, password) => {
-  console.log('vamoo');
   const exists = await utils.validationtionLoginEmail(email);
   await utils.validationLoginPassword(password, exists);
   const result = await model.findEmail(email);

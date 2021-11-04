@@ -22,7 +22,7 @@ const getAll = async () => {
 };
 
 const getById = async (id) => {
-  utils.validationId(id);
+  await utils.validationId(id);
   const result = await model.getById(id);
   return result;
 };
