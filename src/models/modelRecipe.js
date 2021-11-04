@@ -12,4 +12,7 @@ const getAll = async () => recipes()
 const getById = async (id) => recipes()
   .then((col) => col.findOne(id));
 
-module.exports = { create, getAll, getById };
+const findByEmail = async (email) => recipes()
+  .then((col) => col.findOne(email));
+
+module.exports = { create, getAll, getById, findByEmail };

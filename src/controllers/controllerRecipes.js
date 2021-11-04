@@ -18,4 +18,10 @@ const getById = async (req, res) => {
   return res.status(201).json(result);
 };
 
-module.exports = { create, getAll, getById };
+const updateById = async (req, res) => {
+  const token = req.headers.authorization;
+  const result = service.updateById(req.body, token);
+  return res.status(201).json(result);
+};
+
+module.exports = { create, getAll, getById, updateById };
