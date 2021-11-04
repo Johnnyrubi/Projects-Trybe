@@ -31,7 +31,7 @@ const validationCadastrationPassword = (password) => {
 const validationtionLoginEmail = async (email) => {
   if (!email) throw err({ statusCode: 401, message: 'All fields must be filled' });
   const exists = await model.findEmail(email);
-  if (!exists) throw err({ statusCode: 401, message: 'Incorret username or password' });
+  if (!exists) throw err({ statusCode: 401, message: 'Incorrect username or password' });
   return exists.password;
 };
 

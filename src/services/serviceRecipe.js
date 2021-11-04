@@ -13,7 +13,7 @@ const create = async ({ name, ingredients, preparation }, token) => {
   utils.validationIngredients(ingredients);
   utils.validationPreparation(preparation);
   const result = await model.create(name, ingredients, preparation, _id);
-  return result;
+  return result.ops[0];
 };
 
 const getAll = async () => {

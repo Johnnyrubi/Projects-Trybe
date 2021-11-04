@@ -3,8 +3,8 @@ const criationToken = require('../utils/generateToken');
 
 const create = async (req, res) => {
   // const { name, email, password } = req.body;
-  const result = await service.create(req.body);
-  return res.status(201).json(result.ops[0]);
+  const user = await service.create(req.body);
+  return res.status(201).json({ user });
 }; 
 
 const login = async (req, res) => {
