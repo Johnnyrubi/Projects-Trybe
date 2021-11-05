@@ -10,10 +10,13 @@ const create = async (name, ingredients, preparation, userId) => recipes()
 const getAll = async () => recipes()
   .then((col) => col.find().toArray());
 
-const getById = async (_id) => recipes()
-  .then((col) => col.findOne(ObjectId(_id)));
+const getById = async (id) => recipes()
+  .then((col) => col.findOne(ObjectId(id)));
 
 const findByEmail = async (email) => recipes()
   .then((col) => col.findOne(email));
+
+const updateById = async (name, ingredients, preparation, id) => recipes()
+  .then((col) => col.)
 
 module.exports = { create, getAll, getById, findByEmail };

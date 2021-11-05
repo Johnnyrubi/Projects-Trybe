@@ -27,7 +27,7 @@ const getById = async (id) => {
   return result;
 };
 
-const updateById = async ({ name, ingredients, preparation }, token) => {
+const updateById = async ({ name, ingredients, preparation }, token, id) => {
   utils.existsToken(token);
   const { role, email } = verificationToken(token);
   const exists = await utils.findByEmail(email);
