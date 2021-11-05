@@ -9,9 +9,8 @@ const create = async ({ name, email, password, role = 'user' }) => {
   return result.ops[0];
 };
 
-const login = async (email, password) => {
-  const exists = await utils.validationtionLoginEmail(email);
-  await utils.validationLoginPassword(password, exists);
+const login = async ({ email, password }) => {
+  await utils.validationLogin(email, password);
   const result = await model.findEmail(email);
   return result;
 };
