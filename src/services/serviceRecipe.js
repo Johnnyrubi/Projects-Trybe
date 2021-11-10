@@ -29,13 +29,29 @@ const getById = async (id) => {
 
 const updateById = async ({ name, ingredients, preparation }, token, id) => {
   utils.existsToken(token);
-  const { role, email } = verificationToken(token);
-  const exists = await utils.findByEmail(email);
+  const { _id, role } = verificationToken(token);
+  const exists = await utils.findById(_id, id);
   if (role === 'admin' || exists) {
-    const result = await model.updateById(name, ingredients, preparation);
-    return result;
+    await model.updateById(name, ingredients, preparation, id);
+    return ({
+      _id: id,
+      name,
+      ingredients,
+      preparation,
+      userId: _id,
+    });
   }
   throw err({ statusCode: 401, message: 'erro em service' });
 };
 
-module.exports = { create, getAll, getById, updateById };
+const deleteById = async (id, token) => {
+  utils.existsToken(token);
+  const { _id, role } = verificationToken(token);
+  const exists = await utils.findById(_id, id);
+  if (role === 'admin' || exists) {
+    await model.deleteById(id);
+  }
+  throw err({ statusCode: 401, message: 'erro em service' });
+};
+
+module.exports = { create, getAll, getById, updateById, deleteById };

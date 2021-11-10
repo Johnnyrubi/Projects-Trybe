@@ -13,10 +13,14 @@ const getAll = async () => recipes()
 const getById = async (id) => recipes()
   .then((col) => col.findOne(ObjectId(id)));
 
-const findByEmail = async (email) => recipes()
-  .then((col) => col.findOne(email));
+const findById = async (userId, recipeId) => recipes()
+  .then((col) => col.findOne({ userId, _id: ObjectId(recipeId) }));
 
 const updateById = async (name, ingredients, preparation, id) => recipes()
-  .then((col) => col.)
+  .then((col) => col.updateOne({ _id: ObjectId(id) },
+  { $set: { name, ingredients, preparation } }));
 
-module.exports = { create, getAll, getById, findByEmail };
+const deleteById = async (id) => collection()
+.then((col) => col.deleteOne({ _id: ObjectId(id) }));
+
+module.exports = { create, getAll, getById, findById, updateById };

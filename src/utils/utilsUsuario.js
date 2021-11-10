@@ -16,7 +16,6 @@ const validationCadastrationEmail = async (email) => {
      throw err({ statusCode: 400, message: 'Invalid entries. Try again.' });
   }
   const exists = await model.findEmail(email);
-  console.log(exists);
   if (exists) throw err({ statusCode: 409, message: 'Email already registered' });
 };
 

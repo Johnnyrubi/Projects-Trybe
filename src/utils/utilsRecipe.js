@@ -28,8 +28,10 @@ const existsToken = (token) => {
   if (!token) throw err({ statusCode: 401, message: 'missing auth token' });
 };
 
-const findByEmail = async (email) => {
-  const exists = await model.findByEmail(email);
+const findById = async (userId, recipeId) => {
+  console.log(userId, recipeId);
+  const exists = await model.findById(userId, recipeId);
+  console.log(exists);
   return exists;
 };
 
@@ -39,5 +41,5 @@ module.exports = {
   validationName,
   validationId,
   existsToken,
-  findByEmail,
+  findById,
 };

@@ -17,7 +17,6 @@ app.use('/', usuarios);
 app.use('/', receitas);
 
 app.use((err, _req, res, _next) => {
-  console.log(err);
   if (err.statusCode) {
     const { statusCode, message } = err;
     return res.status(statusCode).json({ message });
