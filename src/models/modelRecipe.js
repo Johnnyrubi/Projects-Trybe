@@ -11,7 +11,7 @@ const getAll = async () => recipes()
   .then((col) => col.find().toArray());
 
 const getById = async (id) => recipes()
-  .then((col) => col.findOne(ObjectId(id)));
+  .then((col) => col.findOne({ _id: ObjectId(id) }));
 
 const findById = async (userId, recipeId) => recipes()
   .then((col) => col.findOne({ userId, _id: ObjectId(recipeId) }));
@@ -20,7 +20,7 @@ const updateById = async (name, ingredients, preparation, id) => recipes()
   .then((col) => col.updateOne({ _id: ObjectId(id) },
   { $set: { name, ingredients, preparation } }));
 
-const deleteById = async (id) => collection()
-.then((col) => col.deleteOne({ _id: ObjectId(id) }));
+const deleteById = async (id) => recipes()
+  .then((col) => col.deleteOne({ _id: ObjectId(id) }));
 
-module.exports = { create, getAll, getById, findById, updateById };
+module.exports = { create, getAll, getById, findById, updateById, deleteById };

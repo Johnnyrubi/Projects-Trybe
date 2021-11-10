@@ -10,6 +10,6 @@ route.get('/recipes/:id', rescue(controller.getById));
 
 route.put('/recipes/:id', rescue(controller.updateById));
 
-route.delete('/recipes/:d', rescue(controller.deleteById));
+route.delete('/recipes/:id', rescue(controller.deleteById));
 
 module.exports = route;

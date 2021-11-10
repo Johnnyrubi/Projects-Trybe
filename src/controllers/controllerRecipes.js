@@ -28,7 +28,7 @@ const updateById = async (req, res) => {
 const deleteById = async (req, res) => {
   const { id } = req.params;
   const token = req.headers.authorization;
-  await service.deleteById(req.body, token, id);
+  await service.deleteById(token, id);
   return res.status(204).json();
 };
 

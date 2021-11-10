@@ -19,8 +19,8 @@ const validationIngredients = (ingredients) => {
 };
 
 const validationId = async (id) => {
-  const exists = await model.getById(id);
   if (!ObjectId.isValid(id)) throw err({ statusCode: 404, message: 'recipe not found' });
+  const exists = await model.getById(id);
   if (!exists) throw err({ statusCode: 404, message: 'recipe not found' });
 };
 
@@ -29,9 +29,7 @@ const existsToken = (token) => {
 };
 
 const findById = async (userId, recipeId) => {
-  console.log(userId, recipeId);
   const exists = await model.findById(userId, recipeId);
-  console.log(exists);
   return exists;
 };
 

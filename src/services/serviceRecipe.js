@@ -44,12 +44,13 @@ const updateById = async ({ name, ingredients, preparation }, token, id) => {
   throw err({ statusCode: 401, message: 'erro em service' });
 };
 
-const deleteById = async (id, token) => {
+const deleteById = async (token, id) => {
   utils.existsToken(token);
   const { _id, role } = verificationToken(token);
   const exists = await utils.findById(_id, id);
   if (role === 'admin' || exists) {
     await model.deleteById(id);
+    return 'ok';
   }
   throw err({ statusCode: 401, message: 'erro em service' });
 };
