@@ -12,6 +12,8 @@ app.get('/', (request, response) => {
 });
 // Não remover esse end-point, ele é necessário para o avaliador
 
+// route.post('/recipes/:id/image/', rescue(controller.createImage));
+
 app.use('/', usuarios);
 
 app.use('/', receitas);

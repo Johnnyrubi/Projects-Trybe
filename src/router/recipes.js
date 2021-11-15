@@ -12,4 +12,6 @@ route.put('/recipes/:id', rescue(controller.updateById));
 
 route.delete('/recipes/:id', rescue(controller.deleteById));
 
+// route.post('/recipes/:id/image/', rescue(controller.createImage));
+
 module.exports = route;
