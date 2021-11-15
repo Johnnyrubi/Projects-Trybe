@@ -1,3 +1,4 @@
+const { join } = require('path');
 const model = require('../models/modelRecipe');
 const utils = require('../utils/utilsRecipe');
 const verificationToken = require('../utils/validationToken');
@@ -55,4 +56,16 @@ const deleteById = async (token, id) => {
   throw err({ statusCode: 401, message: 'erro em service' });
 };
 
-module.exports = { create, getAll, getById, updateById, deleteById };
+const createImage = async (token, id, path) => {
+  const pathImage = join('localhost:3000', path);
+  utils.existsToken(token);
+  const { _id, role } = verificationToken(token);
+  const exists = await utils.findById(_id, id);
+  if (role === 'admin' || exists) {
+    await model.createImage(id, pathImage);
+    return exists;
+  }
+  throw err({ statusCode: 400, message: 'erro em service' });
+};
+
+module.exports = { create, getAll, getById, updateById, deleteById, createImage };

@@ -1,4 +1,5 @@
 const express = require('express');
+const erro = require('../middlewares/erro');
 const usuarios = require('../router/usuarios');
 const receitas = require('../router/recipes');
 
@@ -18,12 +19,6 @@ app.use('/', usuarios);
 
 app.use('/', receitas);
 
-app.use((err, _req, res, _next) => {
-  if (err.statusCode) {
-    const { statusCode, message } = err;
-    return res.status(statusCode).json({ message });
-  }
-  return res.status(500).json({ err });
-});
+app.use(erro);
 
 module.exports = app;
