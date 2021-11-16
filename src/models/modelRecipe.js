@@ -23,9 +23,9 @@ const updateById = async (name, ingredients, preparation, id) => recipes()
 const deleteById = async (id) => recipes()
   .then((col) => col.deleteOne({ _id: ObjectId(id) }));
 
-const createImage = async (id, pathImage) => recipes()
+const createImage = async (id, image) => recipes()
   .then((col) => col.findOneAndUpdate({ _id: ObjectId(id) }, 
-  { $set: { pathImage } }, 
+  { $set: { image } }, 
   { returnOriginal: false }));
 
 module.exports = { create, getAll, getById, findById, updateById, deleteById, createImage };

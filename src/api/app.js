@@ -19,6 +19,8 @@ app.use('/', usuarios);
 
 app.use('/', receitas);
 
+app.use('/images', express.static('src/uploads'));
+
 app.use(erro);
 
 module.exports = app;

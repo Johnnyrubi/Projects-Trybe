@@ -33,10 +33,10 @@ const deleteById = async (req, res) => {
 };
 
 const createImage = async (req, res) => {
-  console.log(req.file);
+  const { path } = req.file;
   const { id } = req.params;
   const token = req.headers.authorization;
-  const result = await service.createImage(token, id, );
+  const result = await service.createImage(token, id, path);
   return res.status(200).json(result);
 };
 

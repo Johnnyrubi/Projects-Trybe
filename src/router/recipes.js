@@ -1,7 +1,7 @@
 const route = require('express').Router();
 const rescue = require('express-rescue');
 const controller = require('../controllers/controllerRecipes');
-const upload = require('../middlewares/multer');
+const uploads = require('../middlewares/multer');
 
 route.post('/recipes', rescue(controller.create));
 
@@ -13,6 +13,6 @@ route.put('/recipes/:id', rescue(controller.updateById));
 
 route.delete('/recipes/:id', rescue(controller.deleteById));
 
-route.post('/recipes/:id/image/', upload, rescue(controller.createImage));
+route.put('/recipes/:id/image', uploads, rescue(controller.createImage));
 
 module.exports = route;
