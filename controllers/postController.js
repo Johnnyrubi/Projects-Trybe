@@ -24,6 +24,7 @@ const updatePost = async (req, res) => {
   const token = req.headers.authorization;
   const { id } = req.params;
   const result = await service.updatePost(token, id, body);
+  console.log(result);
   return res.status(200).json(result);
 };
 

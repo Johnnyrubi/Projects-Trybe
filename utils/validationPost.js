@@ -28,7 +28,7 @@ const verificationUserPost = async (userId, id) => {
 };
 
 const validationBodyUpdate = ({ title, content, categoryIds }) => {
-  if (!title) throw err({ statusCode: 400, message: ' "title" is required' });
+  if (!title) throw err({ statusCode: 400, message: '"title" is required' });
   if (!content) throw err({ statusCode: 400, message: '"content" is required' });
   if (categoryIds) throw err({ statusCode: 400, message: 'Categories cannot be edited' });
 };
@@ -47,8 +47,7 @@ const ifCategoryIdExists = async (categoryIds) => {
 
 const updatePost = async (userId, id, body) => {
   validationBodyUpdate(body);
-  verificationUserPost(userId, id);
-  await BlogPost.update(body, { where: { id } });
+  await verificationUserPost(userId, id);
 };
 
 const deletePost = async (userId, id) => {

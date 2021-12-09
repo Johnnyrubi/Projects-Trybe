@@ -30,11 +30,14 @@ const getById = async (token, id) => {
 };
 
 const updatePost = async (token, id, body) => {
- const payload = requireToken.validationToken(token);
- const idUser = payload.id;
+  const payload = requireToken.validationToken(token);
+  const idUser = payload.id;
   await utilsPost.updatePost(idUser, id, body);
- const result = await BlogPost.findOne({ where: { id } });
- return result;
+  await BlogPost.update(body, { where: { id } });
+  const result = await BlogPost.findOne({ where: { id }, 
+    include: [{ model: Category, as: 'categories', through: { attributes: [] } }] });
+  console.log(result);
+  return result;
 };
 
 const deletePost = async (token, id) => {
