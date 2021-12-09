@@ -52,7 +52,7 @@ const deletePost = async (userId, id) => {
 const ifCategoryIdExists = async (categoryIds) => {
   const search = await Category.findAll({ where: { id: categoryIds } });
   if (search.length !== categoryIds.length) {
-    throw err({ statusCode: 401, message: '"categoryIds" not found' });
+    throw err({ statusCode: 400, message: '"categoryIds" not found' });
   }
 };
 
