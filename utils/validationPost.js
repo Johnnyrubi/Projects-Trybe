@@ -18,7 +18,7 @@ const getById = async (id) => {
   const result = await BlogPost.findOne({ where: { id }, 
   include: [{ model: User, as: 'user', attributes: { exclude: ['password'] } },
     { model: Category, as: 'categories', through: { attributes: [] } }] });
-    if (!result) throw err({ statusCode: 401, message: 'Post does not exists' });
+    if (!result) throw err({ statusCode: 404, message: 'Post does not exist' });
     return result;
 };
 
@@ -33,20 +33,9 @@ const validationBodyUpdate = ({ title, content, categoryIds }) => {
   if (categoryIds) throw err({ statusCode: 400, message: 'Categories cannot be edited' });
 };
 
-const updatePost = async (userId, id, body) => {
-  validationBodyUpdate(body);
-  verificationUserPost(userId, id);
-  await BlogPost.update(body, { where: { id } });
-};
-
 const ifPostExists = async (id) => {
   const search = await BlogPost.findOne({ where: { id } });
   if (!search) throw err({ statusCode: 404, message: 'Post doest not exist' });
-};
-
-const deletePost = async (userId, id) => {
-  ifPostExists(id);
-  verificationUserPost(userId, id);
 };
 
 const ifCategoryIdExists = async (categoryIds) => {
@@ -54,6 +43,17 @@ const ifCategoryIdExists = async (categoryIds) => {
   if (search.length !== categoryIds.length) {
     throw err({ statusCode: 400, message: '"categoryIds" not found' });
   }
+};
+
+const updatePost = async (userId, id, body) => {
+  validationBodyUpdate(body);
+  verificationUserPost(userId, id);
+  await BlogPost.update(body, { where: { id } });
+};
+
+const deletePost = async (userId, id) => {
+  ifPostExists(id);
+  verificationUserPost(userId, id);
 };
 
 const validationPost = async (title, content, categoryIds) => {

@@ -1,7 +1,7 @@
 const { BlogPost, User, Category } = require('../models');
 const requireToken = require('../utils/validationToken');
 const utilsPost = require('../utils/validationPost');
-const utils = require('../utils/validationCategories');
+// const utils = require('../utils/validationCategories');
 
 const createPost = async (token, { title, content, categoryIds }) => {
   const { id } = requireToken.validationToken(token);
@@ -25,7 +25,7 @@ const getAll = async (token) => {
 
 const getById = async (token, id) => {
   requireToken.validationToken(token);
-  const result = await utils.getById(id);
+  const result = await utilsPost.getById(id);
   return result;
 };
 
