@@ -1,18 +1,22 @@
 const { BlogPost, User, Category } = require('../models');
-const tokenExists = require('../utils/validationToken');
-const validationPost = require('../utils/validationPost');
+const requireToken = require('../utils/validationToken');
+const utilsPost = require('../utils/validationPost');
 const utils = require('../utils/validationCategories');
 
-const createPost = async (token, body) => {
-  const { id } = tokenExists(token); 
-  const result = await utils.validationPost(body, id);
+const createPost = async (token, { title, content, categoryIds }) => {
+  const { id } = requireToken.validationToken(token);
+  await utilsPost.validationPost(title, content, categoryIds);
+  
+  const result = await BlogPost.create({ userId: id, title, content, categoryIds })
+    .then((post) => {
+      post.addCategory(categoryIds);
+      return ({ id: post.id, userId: post.userId, title: post.title, content: post.content });
+    });
   return result;
 };
 
 const getAll = async (token) => {
-  console.log('oii 3');
-  tokenExists(token);
-  console.log('oiii');
+  requireToken.validationToken(token);
   const result = await 
   BlogPost.findAll({ include: [{ model: User, as: 'user', attributes: { exclude: ['password'] } },
   { model: Category, as: 'categories', through: { attributes: [] } }] });
@@ -20,23 +24,23 @@ const getAll = async (token) => {
 };
 
 const getById = async (token, id) => {
-  tokenExists(token);
-  const result = await validationPost.getById(id);
+  requireToken.validationToken(token);
+  const result = await utils.getById(id);
   return result;
 };
 
 const updatePost = async (token, id, body) => {
- const payload = tokenExists(token);
+ const payload = requireToken.validationToken(token);
  const idUser = payload.id;
-  await validationPost.updatePost(idUser, id, body);
+  await utilsPost.updatePost(idUser, id, body);
  const result = await BlogPost.findOne({ where: { id } });
  return result;
 };
 
 const deletePost = async (token, id) => {
-  const payload = tokenExists(token);
+  const payload = requireToken.validationToken(token);
   const idUser = payload.id;
-  await validationPost.deletePost(idUser, id);
+  await utilsPost.deletePost(idUser, id);
   await BlogPost.destroy({ where: { id } });  
 };
 

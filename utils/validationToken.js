@@ -17,7 +17,6 @@ const tokenExists = (token) => {
 };
 
 const validationToken = (token) => {
-  console.log('validationtoken');
   tokenExists(token);
   const payload = verificationToken(token);
   return payload;

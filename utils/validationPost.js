@@ -11,21 +11,7 @@ const validationContent = (content) => {
 };
 
 const valdiationCategoryIds = (categoryIds) => {
-  if (!categoryIds) throw err({ statusCode: 400, message: '"categoryId" is riqured' });
-};
-
-const ifCategorieExists = async (categoryId) => {
-  const search = await Category.getAll({ where: { id: categoryId } });
-  if (!search) throw err({ statusCode: 401, mensage: '"categoryIds" not found' });
-};
-
-const createPost = async (title, categoryId, content, id) => {
-  const result = await BlogPost.create({ userId: id, title, content, categoryId })
-  .then((post) => {
-    post.addCategory(categoryId);
-    return ({ id: post.id, userId: post.userId, title: post.title, content: post.content });
-  });
-  return result;
+  if (!categoryIds) throw err({ statusCode: 400, message: '"categoryIds" is required' });
 };
 
 const getById = async (id) => {
@@ -41,10 +27,10 @@ const verificationUserPost = async (userId, id) => {
   if (!findUser) throw err({ statusCode: 401, message: 'Unauthorized user' });
 };
 
-const validationBodyUpdate = ({ title, content, categoryId }) => {
+const validationBodyUpdate = ({ title, content, categoryIds }) => {
   if (!title) throw err({ statusCode: 400, message: ' "title" is required' });
   if (!content) throw err({ statusCode: 400, message: '"content" is required' });
-  if (categoryId) throw err({ statusCode: 400, message: 'Categories cannot be edited' });
+  if (categoryIds) throw err({ statusCode: 400, message: 'Categories cannot be edited' });
 };
 
 const updatePost = async (userId, id, body) => {
@@ -63,12 +49,18 @@ const deletePost = async (userId, id) => {
   verificationUserPost(userId, id);
 };
 
-const validationPost = async ({ title, categoryId, content }, id) => {
+const ifCategoryIdExists = async (categoryIds) => {
+  const search = await Category.findAll({ where: { id: categoryIds } });
+  if (search.length !== categoryIds.length) {
+    throw err({ statusCode: 401, message: '"categoryIds" not found' });
+  }
+};
+
+const validationPost = async (title, content, categoryIds) => {
   validationTitle(title);
-  valdiationCategoryIds(categoryId);
+  valdiationCategoryIds(categoryIds);
   validationContent(content);
-  await ifCategorieExists(categoryId);
-  await createPost(title, categoryId, content, id);
+  await ifCategoryIdExists(categoryIds);
 };
 
 module.exports = {
