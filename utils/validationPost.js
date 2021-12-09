@@ -35,7 +35,7 @@ const validationBodyUpdate = ({ title, content, categoryIds }) => {
 
 const ifPostExists = async (id) => {
   const search = await BlogPost.findOne({ where: { id } });
-  if (!search) throw err({ statusCode: 404, message: 'Post does not exist' });
+  if (!search) throw err({ statusCode: 404, message: 'Post doest not exist' });
 };
 
 const ifCategoryIdExists = async (categoryIds) => {
@@ -51,7 +51,6 @@ const updatePost = async (userId, id, body) => {
 };
 
 const deletePost = async (userId, id) => {
-  console.log('delete');
   await ifPostExists(id);
   await verificationUserPost(userId, id);
 };
