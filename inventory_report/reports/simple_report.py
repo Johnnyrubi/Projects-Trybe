@@ -2,8 +2,10 @@ from datetime import datetime
 
 
 class SimpleReport():
-    @staticmethod
-    def generate(list):
+    EMPRESA = {}
+
+    @classmethod
+    def generate(cls, list):
         empresa = dict()
         data_val = []
         data_de_fab = list[0]["data_de_fabricacao"]
@@ -15,12 +17,12 @@ class SimpleReport():
             if index["data_de_validade"] > today:
                 data_val.append(index["data_de_validade"])
 
-            value = len(index["nome_do_produto"].split(","))
-
             if index["nome_da_empresa"] not in empresa.keys():
-                empresa[index["nome_da_empresa"]] = value
+                empresa[index["nome_da_empresa"]] = 1
             else:
-                empresa[index["nome_da_empresa"]] += value
+                empresa[index["nome_da_empresa"]] += 1
+
+        cls.EMPRESA = empresa
 
         return (
             f"Data de fabricação mais antiga: {data_de_fab}\n"
