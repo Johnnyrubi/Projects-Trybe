@@ -77,7 +77,6 @@ def get_tech_news(amount):
     url_page = "https://www.tecmundo.com.br/novidades"
     cont = 0
     news = []
-    
     while url_page:
         new_link = fetch(url_page)
         link = scrape_novidades(new_link)
@@ -91,7 +90,5 @@ def get_tech_news(amount):
         url_page = scrape_next_page_link(new_link)
         if not url_page or cont == amount:
             break
-    
     create_news(news)
     return news[:amount]
-
