@@ -4,7 +4,7 @@ import csv
 def reading(path_to_file):
     lista_vazia = []
     with open(path_to_file) as file:
-        keys = ["costumer", "comida", "dia"]
+        keys = ["costumer", "order", "day"]
         status_reader = csv.DictReader(file, delimiter=",", fieldnames=keys)
         for item in status_reader:
             lista_vazia.append(item)
@@ -12,25 +12,25 @@ def reading(path_to_file):
 
 
 def FavoriteFood(arrayList, costumer):
-    contador = [i["comida"] for i in arrayList if i["costumer"] == costumer]
+    contador = [i["order"] for i in arrayList if i["costumer"] == costumer]
     return max(contador, key=contador.count)
 
 
 def countArnaldoBurguer(arrayList):
-    contador = [i["comida"] for i in arrayList if i["nome"] == "arnaldo"]
+    contador = [i["order"] for i in arrayList if i["costumer"] == "arnaldo"]
     return contador.count("hamburguer")
 
 
-def foodNeverRequest(arrayList, nome):
-    count = {i["comida"] for i in arrayList}
-    contador = [i["comida"] for i in arrayList if i["nome"] == nome]
+def foodNeverRequest(arrayList, costumer):
+    count = {i["order"] for i in arrayList}
+    contador = [i["order"] for i in arrayList if i["costumer"] == costumer]
     return count.difference(contador)
 
 
-def daysWhoClientNotGo(arrayList, nome):
-    count = {i["dia"] for i in arrayList}
-    contador = [i["dia"] for i in arrayList if i["nome"] == nome]
-    return count.difference(contador)
+def daysWhoClientNotGo(arrayList, costumer):
+    cont = {i["day"] for i in arrayList}
+    contador = [i["day"] for i in arrayList if i["costumer"] == costumer]
+    return cont.difference(contador)
 
 
 def analyze_log(path_to_file):
