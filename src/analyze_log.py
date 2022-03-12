@@ -11,8 +11,8 @@ def reading(path_to_file):
     return lista_vazia
 
 
-def countMariaFood(arrayList):
-    contador = [i["comida"] for i in arrayList if i["nome"] == "maria"]
+def FavoriteFood(arrayList, nome):
+    contador = [i["comida"] for i in arrayList if i["nome"] == nome]
     return max(contador, key=contador.count)
 
 
@@ -21,24 +21,24 @@ def countArnaldoBurguer(arrayList):
     return contador.count("hamburguer")
 
 
-def countJoaoFoodNeverDid(arrayList):
+def foodNeverRequest(arrayList, nome):
     count = {i["comida"] for i in arrayList}
-    contador = [i["comida"] for i in arrayList if i["nome"] == "joao"]
+    contador = [i["comida"] for i in arrayList if i["nome"] == nome]
     return count.difference(contador)
 
 
-def daysJoaoNotGo(arrayList):
+def daysWhoClientNotGo(arrayList, nome):
     count = {i["dia"] for i in arrayList}
-    contador = [i["dia"] for i in arrayList if i["nome"] == "joao"]
+    contador = [i["dia"] for i in arrayList if i["nome"] == nome]
     return count.difference(contador)
 
 
 def analyze_log(path_to_file):
     fileRead = reading(path_to_file)
-    mariaResult = countMariaFood(fileRead)
+    mariaResult = FavoriteFood(fileRead, "maria")
     arnaldoResult = countArnaldoBurguer(fileRead)
-    joaoResult = countJoaoFoodNeverDid(fileRead)
-    joaoDays = daysJoaoNotGo(fileRead)
+    joaoResult = foodNeverRequest(fileRead, "joao")
+    joaoDays = daysWhoClientNotGo(fileRead, "joao")
 
     with open("data/mkt_campaign.txt", mode="w") as f:
         f.writelines([
