@@ -4,15 +4,15 @@ import csv
 def reading(path_to_file):
     lista_vazia = []
     with open(path_to_file) as file:
-        keys = ["nome", "comida", "dia"]
+        keys = ["costumer", "comida", "dia"]
         status_reader = csv.DictReader(file, delimiter=",", fieldnames=keys)
         for item in status_reader:
             lista_vazia.append(item)
     return lista_vazia
 
 
-def FavoriteFood(arrayList, nome):
-    contador = [i["comida"] for i in arrayList if i["nome"] == nome]
+def FavoriteFood(arrayList, costumer):
+    contador = [i["comida"] for i in arrayList if i["costumer"] == costumer]
     return max(contador, key=contador.count)
 
 
