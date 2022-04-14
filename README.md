@@ -26,23 +26,22 @@ Seja bem vindo(a), este repositório contém todos os projetos desenvolvidos enq
 |Trivia React Redux|Frontend|https://github.com/MatheusSchreiner/Trybe-Projetos/tree/Project-Trivia-React-Redux|React & Redux|
 |Star Wars Planets Search|Frontend|https://github.com/MatheusSchreiner/Trybe-Projetos/tree/Project-Starwars-Planets-Search|React & Context API + Hooks|
 |Recipes App|Frontend|https://github.com/MatheusSchreiner/Trybe-Projetos/tree/Project-Recipes-App|React & Context API + Hooks|
-|MySQL All For One|Backend|https://github.com/MatheusSchreiner/Trybe-Projetos/tree/Project-MySQL-All-For-One|MySQL|
+|MySQL All For One|Backend|https://github.com/Johnnyrubi/Projects-Trybe/tree/mysql-all-for-one|MySQL|
 |Vocabulary Booster|Backend|https://github.com/MatheusSchreiner/Trybe-Projetos/tree/Project-MySQL-Vocabulary-Booster|MySQL|
-|MySQL One For All|Backend|https://github.com/MatheusSchreiner/Trybe-Projetos/tree/Project-MySQL-One-For-All|MySQL|
-|MongoDB Data Flights|Backend|https://github.com/MatheusSchreiner/Trybe-Projetos/tree/Project-Mongodb-Data-Flights|MongoDB|
+|MySQL One For All|Backend|https://github.com/Johnnyrubi/Projects-Trybe/tree/project-one-for-all|MySQL|
+|MongoDB Data Flights|Backend|https://github.com/Johnnyrubi/Projects-Trybe/tree/project-dataflights|MongoDB|
 |MongoDB Commerce|Backend|https://github.com/MatheusSchreiner/Trybe-Projetos/tree/Project-Mongodb-Commerce|MongoDB|
-|MongoDB Aggregations|Backend|https://github.com/MatheusSchreiner/Trybe-Projetos/tree/Project-Mongodb-Aggregations|MongoDB|
-|Talker Manager|Backend|https://github.com/MatheusSchreiner/Trybe-Projetos/tree/Project-Talker-Manager|NodeJS|
-|Store Manager|Backend|https://github.com/MatheusSchreiner/Trybe-Projetos/tree/Project-Store-Manager|NodeJS, JWT e MongoDB|
-|Cookmaster|Backend|https://github.com/MatheusSchreiner/Trybe-Projetos/tree/Project-Cookmaster|NodeJS, JWT, Multer e MongoDB|
-|Stranger Things Frontend|Deployment|https://github.com/MatheusSchreiner/Trybe-Projetos/tree/Project-Stranger-Things-Frontend|Heroku|
-|Stranger Things Backend|Deployment|https://github.com/MatheusSchreiner/Trybe-Projetos/tree/Project-Stranger-Things-Backend|Heroku|
+|MongoDB Aggregations|Backend|https://github.com/Johnnyrubi/Projects-Trybe/tree/project-mongodb-aggregations|MongoDB|
+|Talker Manager|Backend|https://github.com/Johnnyrubi/Projects-Trybe/tree/project-talker-manager|NodeJS|
+|Store Manager|Backend|https://github.com/Johnnyrubi/Projects-Trybe/tree/project-store-manager|NodeJS, JWT e MongoDB|
+|Cookmaster|Backend|https://github.com/Johnnyrubi/Projects-Trybe/tree/project-cookmaster|NodeJS, JWT, Multer e MongoDB|
+|Stranger Things Frontend|Deployment|https://github.com/Johnnyrubi/Projects-Trybe/tree/project-stranger-things-frontend|Heroku|
+|Stranger Things Backend|Deployment|https://github.com/Johnnyrubi/Projects-Trybe/tree/project-stranger-things-backend|Heroku|
 |Blogs API|Backend|https://github.com/MatheusSchreiner/Trybe-Projetos/tree/Project-Blogs-Api|NodeJS, JWT e ORM|
-|Webchat|Backend|https://github.com/MatheusSchreiner/Trybe-Projetos/tree/Project-Webchat|NodeJS, ORM e WebSocket|
-|Delivery App|Backend|https://github.com/MatheusSchreiner/Trybe-Projetos/tree/Project-Delivery-App|NodeJS, ORM, JWT, React, Context API|
-|Job Insights|Ciência da Computação|https://github.com/MatheusSchreiner/Trybe-Projetos/tree/Project-Job-Insights|Python|
-|Inventory Report|Ciência da Computação|https://github.com/MatheusSchreiner/Trybe-Projetos/tree/Project-Inventory-Report|Python, POO|
-|Tech News|Ciência da Computação|https://github.com/MatheusSchreiner/Trybe-Projetos/tree/Project-Tech-News| Python, Raspagem de Dados|
-|Algorithms|Ciência da Computação|https://github.com/MatheusSchreiner/Trybe-Projetos/tree/Project-Algorithms|Python, Lógica de Complexidade|
-|Restaurant Orders|Ciência da Computação|https://github.com/MatheusSchreiner/Trybe-Projetos/tree/Project-Restaurant-Orders|Python, Estrutura de Dados I (Hash, Objetos, Arrays e Conjuntos)|
-|TING - Trybe Is Not Google|Ciência da Computação|https://github.com/MatheusSchreiner/Trybe-Projetos/tree/Project-TING|Python, Estrutura de Dados II (Filas, Pilhas, Decks, Nós e Listas Encadeadas)|
+|Webchat|Backend|https://github.com/Johnnyrubi/Projects-Trybe/tree/project-webchat|NodeJS, ORM e WebSocket|
+|Job Insights|Ciência da Computação|https://github.com/Johnnyrubi/Projects-Trybe/tree/project-job-insights|Python|
+|Inventory Report|Ciência da Computação|https://github.com/Johnnyrubi/Projects-Trybe/tree/project-inventory-report, POO|
+|Tech News|Ciência da Computação|https://github.com/Johnnyrubi/Projects-Trybe/tree/project-tech-news,| Python, Raspagem de Dados|
+|Algorithms|Ciência da Computação|https://github.com/Johnnyrubi/Projects-Trybe/tree/project-algorithms, Lógica de Complexidade|
+|Restaurant Orders|Ciência da Computação|https://github.com/Johnnyrubi/Projects-Trybe/tree/project-restaurant-orders, Estrutura de Dados I (Hash, Objetos, Arrays e Conjuntos)|
+|TING - Trybe Is Not Google|Ciência da Computação|https://github.com/Johnnyrubi/Projects-Trybe/tree/project-ting, Estrutura de Dados II (Filas, Pilhas, Decks, Nós e Listas Encadeadas)|
