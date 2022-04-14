@@ -1,0 +1,39 @@
+.corpo {
+  background-color: rgb(253, 251, 251);
+}
+
+.paragrafo {
+  font-style: unset;
+  font-size: 40px;
+  color: black;
+  font-family: 'Courier New', Courier, monospace;
+  letter-spacing: 1;
+  line-height: 1;
+}
+
+.tabelao {
+  border: solid black 1px;
+  border-collapse: solid;
+  margin: 1px;
+  padding: 1px;
+}
+
+.cabeca {
+  position: fixed;
+  width: 100%;
+  background-color: blueviolet;
+  height: 100px;
+  top: 0px;
+}
+
+.artigo {
+  display: inline-block;
+}
+
+.section {
+  display: inline-block;
+}
+
+.paragrafh {
+  font-size: 1px;
+}
