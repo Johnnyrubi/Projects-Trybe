@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook – entre ou cadastre-se</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<header class="top-bar">
+    <section id="logo-container">
+        <img src="imgs/facebook-logo.png" alt="logoFacebook" class="facebook-logo">
+    </section>
+    <section id="form-login-container">
+        <form method="GET" class="facebook-login">
+            <section class="form-group">
+                <label for="user-email-phone" id="user-email-phone-label">Email ou telefone</label>
+                <input id="user-email-phone" type="text" name="user-telefone" required
+                    oninvalid="this.setCustomValidity('Informe o email ou telefone')">
+            </section>
+            <section class="form-group">
+                <label for="user-password" id="user-password-label">Senha</label>
+                <input id="user-password" type="password" name="user-password" required>
+            </section>
+            <section class="form-control">
+                <label for="button-login">
+                    <button id="button-login">Entrar</button>
+                </label>
+            </section>
+        </form>
+    </section>
+</header>
+
+<section class="main-content">
+    <aside class="left-content">
+        <p id="facebook-slogan">O Facebook ajuda você a se conectar e compartilhar com as pessoas que fazem parte da sua
+            vida.</p>
+        <img src="imgs/networking.png" id="facebook-networking" alt="LogoNetworking">
+    </aside>
+    <aside class="right-content">
+        <h1>Abra uma conta</h1>
+        <section class="quick-easy">
+            <p>É rápido e fácil.</p>
+        </section>
+
+        <form method="GET" id="registro">
+
+            <section class="user-name">
+                <input class="input-cadastro" id="nomeLogin" type="text" name="firstname" placeholder="Nome" />
+                <input class="input-cadastro" id="sobrenomeLogin" type="text" name="lastname" placeholder="Sobrenome" />
+            </section>
+
+            <input type="text" name="phone_email" id="telefoneLogin" placeholder="Celular ou email"
+                class="input-cadastro" />
+            <input type="password" name="password" id="senhaLogin" placeholder="Nova senha" class="input-cadastro" />
+
+            <br><label id="label-gender">Gênero</label>
+
+            <section>
+
+                <label for="feminino">
+                    <input class="input-cadastro" type="radio" name="gender" id="feminino" checked
+                        value="Feminino">Feminino
+                </label>
+
+                <label for="masculino">
+                    <input class="input-cadastro" type="radio" name="gender" id="masculino" value="Masculino">Masculino
+                </label>
+
+                <label for="custom-input">
+                    <input class="input-cadastro" type="radio" name="gender" id="personalizado"
+                        value="Personalizado">Personalizado
+                </label>
+
+            </section>
+
+            <input class="input-cadastro" type="text" id="genero-personalizado" name="gender-custom"
+                placeholder="Gênero (opcional)">
+            <label id="label-birthdate" for="birthdate">Data de nascimento</label><br>
+            <input class="input-cadastro" type="text" name="birthdate" id="nascimentoLogin" placeholder="dd/mm/aaaa"
+                class="input-cadastro" />
+            <p id="campos-invalidos"></p>
+
+        </form>
+
+        <br>
+
+        <button id="facebook-register" type="submit">Cadastre-se</button>
+
+    </aside>
+</section>
+
+<body>
+    <script src="script.js"></script>
+</body>
+
+</html>
