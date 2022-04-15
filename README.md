@@ -6,10 +6,6 @@ Seja bem vindo(a), este repositório contém todos os projetos desenvolvidos enq
 
 |Project Name|Module|Repository|Technologies|
 |---|---|---|---|
-|Lessons Learned|Fundamentos|https://github.com/MatheusSchreiner/Trybe-Projetos/tree/Project-Lessons-Learned|HTML & CSS|
-|Playground Functions|Fundamentos|https://github.com/MatheusSchreiner/Trybe-Projetos/tree/Project-Playground-Functions|JavaScript|
-|Pixels Art|Fundamentos|https://github.com/MatheusSchreiner/Trybe-Projetos/tree/Project-Pixels-Art|HTML, CSS & JS|
-|ToDo List|Fundamentos|https://github.com/MatheusSchreiner/Trybe-Projetos/tree/Project-Todo-List|HTML, CSS & JS|
 |JS Unit Tests|Fundamentos|https://github.com/Johnnyrubi/Projects-Trybe/tree/project-js-unit-tests|JavaScript & Unit Tests|
 |Jest|Fundamentos|https://github.com/Johnnyrubi/Projects-Trybe/tree/project-jest|JEST|
 |MySQL All For One|Backend|https://github.com/Johnnyrubi/Projects-Trybe/tree/mysql-all-for-one|MySQL|
