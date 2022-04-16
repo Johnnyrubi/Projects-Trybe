@@ -1,59 +1,7 @@
-### Termos e acordos
-
-Ao iniciar este projeto, você concorda com as diretrizes do Código de Ética e Conduta e do Manual da Pessoa Estudante da Trybe
-
-# Boas vindas ao repositório do projeto Store Manager!
-
-Você já usa o GitHub diariamente para desenvolver os exercícios, certo? Agora, para desenvolver os projetos, você deverá seguir as instruções a seguir. Fique atento a cada passo, e se tiver qualquer dúvida, nos envie por Slack! #vqv 🚀
-
-Aqui você vai encontrar os detalhes de como estruturar o desenvolvimento do seu projeto a partir deste repositório, utilizando uma branch específica e um Pull Request para colocar seus códigos.
-
+# Boas vindas ao Projeto Store Manager!
 ---
 
-# Sumário
-
-- [Habilidades](#habilidades)
-- [Entregáveis](#entregáveis)
-  - [O que deverá ser desenvolvido](#o-que-deverá-ser-desenvolvido)
-  - [Desenvolvimento](#desenvolvimento)
-  - [Data de entrega](#data-de-entrega)
-- [Instruções para entregar seu projeto](#instruções-para-entregar-seu-projeto)
-  - [Antes de começar a desenvolver](#antes-de-começar-a-desenvolver)
-  - [Durante o desenvolvimento](#durante-o-desenvolvimento)
-- [Como desenvolver](#como-desenvolver)
-  - [Padrões e conexões](#padrões-e-conexões)
-  - [Conexão com o Banco](#conexão-com-o-banco)
-  - [Tabelas](#tabelas)
-- [Requisitos do projeto](#requisitos-do-projeto)
-  - [Linter](#linter)
-  - [Lista de requisitos](#lista-de-requisitos)
-
-    `Obrigatórios`
-    - [1 - Crie um endpoint para o cadastro de produtos](#1---crie-um-endpoint-para-o-cadastro-de-produtos)
-    - [2 - Crie um endpoint para listar os produtos](#2---crie-um-endpoint-para-listar-os-produtos)
-    - [3 - Crie um endpoint para atualizar um produto](#3---crie-um-endpoint-para-atualizar-um-produto)
-    - [4 - Crie um endpoint para deletar um produto](#4---crie-um-endpoint-para-deletar-um-produto)
-    - [5 - Crie um endpoint para cadastrar vendas](#5---crie-um-endpoint-para-cadastrar-vendas)
-    - [6 - Crie um endpoint para listar as vendas](#6---crie-um-endpoint-para-listar-as-vendas)
-    - [7 - Crie um endpoint para atualizar uma venda](#7---crie-um-endpoint-para-atualizar-uma-venda)
-    - [8 - Crie um endpoint para deletar uma venda](#8---crie-um-endpoint-para-deletar-uma-venda)
-    - [9 - Atualize a quantidade de produtos](#9---atualize-a-quantidade-de-produtos)
-    - [10 - Valide a quantidade de produtos](#10---valide-a-quantidade-de-produtos)
-
-    `Bônus`
-    
-    - [11 - Escreva testes para seus models](#11---escreva-testes-para-seus-models)
-    - [12 - Escreva testes para seus services](#12---escreva-testes-para-seus-services)
-    - [13 - Escreva testes para seus controllers](#13---escreva-testes-para-seus-controllers)
-- [Depois de terminar o desenvolvimento](#depois-de-terminar-o-desenvolvimento)
-- [Revisando um pull request](#revisando-um-pull-request)
-- [Avisos Finais](#avisos-finais)
-
----
-
-# Habilidades
-
-Nesse projeto, você será capaz de:
+### Nesse projeto, irei:
 
 - Entender o funcionamento da camada de Model;
 - Delegar responsabilidades específicas para essa camada;
@@ -64,68 +12,30 @@ Nesse projeto, você será capaz de:
 - Entender e aplicar os padrões REST;
 - Escrever assinaturas para APIs intuitivas e facilmente entendíveis.
 
-# Entregáveis
-
-Para entregar o seu projeto você deverá criar um Pull Request neste repositório.
-
-Lembre-se que você pode consultar nosso conteúdo sobre
-[Git & GitHub](https://course.betrybe.com/intro/git/) sempre que precisar!
-
 ---
 
 ## O que deverá ser desenvolvido
 
-Você vai desenvolver sua primeira API utilizando a arquitetura MSC!
+Desenvolvi uma API RESTful utilizando a arquitetura MSC!
 
-A API a ser construída trata-se de um sistema de gerenciamento de vendas, onde será possível criar, visualizar, deletar e atualizar produtos e vendas.
+A API construída trata-se de um sistema de gerenciamento de vendas, onde será possível criar, visualizar, deletar e atualizar produtos e vendas.
 
 ---
 
 ## Desenvolvimento
 
-Você vai desenvolver todas as camadas da API (Models, Services caso necessário, e Controllers).
+Desenvolvi todas as camadas da API (Models, Services caso necessário, e Controllers).
 
 Através dessa aplicação, será possível realizar as operações básicas que se pode fazer em um determinado banco de dados: Criação, Leitura, Atualização e Exclusão (ou `CRUD`, para as pessoas mais mais íntimas 😜).
 
-Você deve utilizar o banco MongoDB para a gestão de dados. Além disso, a API deve ser RESTful.
+utilizei MongoDb como banco de dados.
 
-⚠️ **Dicas Importantes** ⚠️:
 
-- Deve ser possível que a pessoa usuária, independente de cadastramento ou login, possa adicionar, ler, deletar e atualizar produtos no seu estoque. O usuário deve poder também enviar vendas para o sistema. Essas vendas devem validar se o produto em questão existe. Deve, também, ser possível ler, deletar e atualizar vendas.
-
-- Para **todos os endpoints** garanta que:
-
-  - Caso o recurso não seja encontrado, sua API retorne o status HTTP adequado com o body `{ message: '<recurso> não encontrado' }`.
-  - Em caso de erro, sua API retorne o status HTTP adequado com o body `{ err: { message: <mensagem de erro>, code: <código do erro> } }`.
-    - O código do erro deve ser determinado por você e deve seguir o mesmo padrão para toda a aplicação. Por exemplo: `'not_found'`, `'invalid_data'` e afins.
-  - Em caso de dados inválidos, sua API retorne o status HTTP adequado, com o body `{ err: { message: 'Dados inválidos', code: <código do erro> } }`.
-  - Todos os retornos de erro devem seguir o mesmo formato. Para erros que requerem dados adicionais (por exemplo, para informar quais campos estão incorretos) utilize a propriedade `data` dentro do objeto `err`.
-  - Para gerar os objetos de erro personalizados, você pode utilizar uma biblioteca de erros, como o [`boom`](https://www.npmjs.com/package/@hapi/boom).
-
-- Você pode utilizar middlewares e objetos de erro personalizados para que não tenha que repetir a lógica de tratamento de erro em vários lugares. Não se esqueça também do [express-rescue](https://www.npmjs.com/package/express-rescue), ele pode facilitar muito o trabalho de tratar erros.
-
-- Quando estiver na dúvida sobre qual status HTTP utilizar, você pode consultar sites como o [httpstatuses.com](https://httpstatuses.com/), [restapitutorial.com](https://www.restapitutorial.com/httpstatuscodes.html) ou a [documentação sobre o assunto no MDN](https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Status). Com o tempo, você vai lembrar com facilidade o significado dos códigos mais comuns.
-
-- Para realizar a validação dos dados, você pode utilizar middlewares como [`Joi`](https://www.npmjs.com/package/@hapi/joi) ou o [`Expresso Validator`](https://www.npmjs.com/package/@expresso/validator). Caso prefira, você também pode realizar a validação de forma manual.
-
----
-
-## Data de Entrega
-
-  - Serão `3` dias de projeto.
-  - Data de entrega para avaliação final do projeto: `27/10/2021 - 14:00h`.
-
----
-
-# Instruções para entregar seu projeto
-
-## Antes de começar a desenvolver
+## Antes de começar:
 
 1. Clone o repositório
 
-- `git clone https://github.com/tryber/sd-011-store-manager.git`.
 - Entre na pasta do repositório que você acabou de clonar:
-  - `cd sd-011-store-manager`
 
 2. Instale as dependências [**Caso existam**]
 
@@ -133,75 +43,13 @@ Você deve utilizar o banco MongoDB para a gestão de dados. Além disso, a API 
 
 Atenção :warning: Não rode o comando npm audit fix! Ele atualiza várias dependências do projeto, e essa atualização gera conflitos com o avaliador.
 
-3. Crie uma branch a partir da branch `master`
+### Todos os seus endpoints estão no padrão REST
 
-- Verifique que você está na branch `master`
-  - Exemplo: `git branch`
-- Se não estiver, mude para a branch `master`
-  - Exemplo: `git checkout master`
-- Agora crie uma branch à qual você vai submeter os `commits` do seu projeto
-  - Você deve criar uma branch no seguinte formato: `nome-de-usuario-nome-do-projeto`
-  - Exemplo: `git checkout -b joaozinho-sd-011-store-manager`
+- Usei verbos HTTP adequados para cada operação.
 
-4. Adicione as mudanças ao _stage_ do Git e faça um `commit`
+- Agrupei e padronizei suas URL em cada recurso.
 
-- Verifique que as mudanças ainda não estão no _stage_
-  - Exemplo: `git status` (deve aparecer listada a pasta _joaozinho_ em vermelho)
-- Adicione o novo arquivo ao _stage_ do Git
-  - Exemplo:
-    - `git add .` (adicionando todas as mudanças - _que estavam em vermelho_ - ao stage do Git)
-    - `git status` (deve aparecer listado o arquivo _joaozinho/README.md_ em verde)
-- Faça o `commit` inicial
-  - Exemplo:
-    - `git commit -m 'iniciando o projeto x'` (fazendo o primeiro commit)
-    - `git status` (deve aparecer uma mensagem tipo _nothing to commit_ )
-
-5. Adicione a sua branch com o novo `commit` ao repositório remoto
-
-- Usando o exemplo anterior: `git push -u origin joaozinho-sd-011-store-manager`
-
-6. Crie um novo `Pull Request` _(PR)_
-
-- Vá até a página de _Pull Requests_ do [repositório no GitHub](https://github.com/tryber/sd-011-store-manager/pulls)
-- Clique no botão verde _"New pull request"_
-- Clique na caixa de seleção _"Compare"_ e escolha a sua branch **com atenção**
-- Clique no botão verde _"Create pull request"_
-- Adicione uma descrição para o _Pull Request_ e clique no botão verde _"Create pull request"_
-- **Não se preocupe em preencher mais nada por enquanto!**
-- Volte até a [página de _Pull Requests_ do repositório](https://github.com/tryber/sd-011-store-manager/pulls) e confira que o seu _Pull Request_ está criado
-
----
-
-## Durante o desenvolvimento
-
-* ⚠ **PULL REQUESTS COM ISSUES NO LINTER NÃO SERÃO AVALIADAS, ATENTE-SE PARA RESOLVÊ-LAS ANTES DE FINALIZAR O DESENVOLVIMENTO!** ⚠
-
-* Faça `commits` das alterações que você fizer no código regularmente
-
-* Lembre-se de sempre após um (ou alguns) `commits` atualizar o repositório remoto
-
-* Os comandos que você utilizará com mais frequência são:
-  1. `git status` _(para verificar o que está em vermelho - fora do stage - e o que está em verde - no stage)_
-  2. `git add` _(para adicionar arquivos ao stage do Git)_
-  3. `git commit` _(para criar um commit com os arquivos que estão no stage do Git)_
-  5. `git push -u nome-da-branch` _(para enviar o commit para o repositório remoto na primeira vez que fizer o `push` de uma nova branch)_
-  4. `git push` _(para enviar o commit para o repositório remoto após o passo anterior)_
-
----
-
-# Como desenvolver
-
-## Padrões e conexões
-
-## ⚠️ Leia-os atentamente e siga à risca o que for pedido. ⚠️
-
-### Todos os seus endpoints devem estar no padrão REST
-
-- Use os verbos HTTP adequados para cada operação.
-
-- Agrupe e padronize suas URL em cada recurso.
-
-- Garanta que seus endpoints sempre retornem uma resposta, havendo sucesso nas operações ou não.
+- Garanti que meus endpoints sempre retornem uma resposta, havendo sucesso nas operações ou não.
 
 - Retorne os códigos de status corretos (recurso criado, erro de validação, autorização, etc).
 
@@ -212,18 +60,6 @@ Atenção :warning: Não rode o comando npm audit fix! Ele atualiza várias depe
 - Services devem estar na pasta `services`, **na raiz do projeto**
 
 - Controllers devem estar na pasta `controllers`, **na raiz do projeto**
-
-### Arquivo index.js
-
-Há um arquivo `index.js` no repositório. Não remova, nele, o seguinte trecho de código:
-
-```javascript
-app.get('/', (request, response) => {
-  response.send();
-});
-```
-
-Isso está configurado para o avaliador funcionar.
 
 ### Conexão com o Banco:
 
@@ -279,20 +115,6 @@ A resposta do insert que deve retornar após a criação é parecida essa:
 ```
 
 (O \_id será gerado automaticamente)
-
-# Requisitos do projeto
-
-## Linter
-
-Usaremos o [ESLint](https://eslint.org/) para fazer a análise estática do seu código.
-
-Este projeto já vem com as dependências relacionadas ao _linter_ configuradas no arquivos `package.json`.
-
-Para poder rodar os `ESLint` em um projeto basta executar o comando `npm install` dentro do projeto e depois `npm run lint`. Se a análise do `ESLint` encontrar problemas no seu código, tais problemas serão mostrados no seu terminal. Se não houver problema no seu código, nada será impresso no seu terminal.
-
-Você pode também instalar o plugin do `ESLint` no `VSCode`, bastar ir em extensions e baixar o [plugin `ESLint`](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint).
-
----
 
 ## Testes
 
@@ -726,35 +548,3 @@ O retorno de uma venda cadastrada com sucesso deverá ser:
 - Será validado que cobertura total das linhas dos arquivos na pasta `controllers` é maior ou igual a 80%
 
 ---
-
-## Depois de terminar o desenvolvimento
-
-Para **"entregar"** seu projeto, siga os passos a seguir:
-
-* Vá até a página **DO SEU** _Pull Request_, adicione a label de _"code-review"_ e marque seus colegas
-  * No menu à direita, clique no _link_ **"Labels"** e escolha a _label_ **code-review**
-  * No menu à direita, clique no _link_ **"Assignees"** e escolha **o seu usuário**
-  * No menu à direita, clique no _link_ **"Reviewers"** e digite `students`, selecione o time `tryber/students-sd-00`
-
-Se ainda houver alguma dúvida sobre como entregar seu projeto, [aqui tem um video explicativo](https://vimeo.com/362189205).
-
-⚠ Lembre-se que garantir que todas as _issues_ comentadas pelo **Lint** estão resolvidas! ⚠
-
----
-
-## Revisando um pull request
-
-À medida que você e as outras pessoas que estudam na Trybe forem entregando os projetos, vocês receberão um alerta via Slack para também fazer a revisão dos Pull Requests dos seus colegas. Fiquem atentos às mensagens do "Pull Reminders" no Slack!
-
-Use o material que você já viu sobre [Code Review](https://course.betrybe.com/real-life-engineer/code-review/) para te ajudar a revisar os projetos que chegaram para você.
-
----
-
-# Avisos finais
-
-Ao finalizar e submeter o projeto, não se esqueça de avaliar sua experiência preenchendo o formulário. Leva menos de 3 minutos!
-
-Link: [FORMULÁRIO DE AVALIAÇÃO DE PROJETO](https://be-trybe.typeform.com/to/ZTeR4IbH#cohort_name=Turma%2011)
-
-O avaliador automático não necessariamente avalia seu projeto na ordem em que os requisitos aparecem no readme. Isso acontece para deixar o processo de avaliação mais rápido. Então, não se assuste se isso acontecer, ok?
->>>>>>> a/johnny-rubi-store-manager
