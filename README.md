@@ -30,9 +30,6 @@ Sendo assim o programa deverá possuir dois módulos:
 
 - Modo de buscas.
 
----
-Caso julgue necessário, sinta-se à vontade para criar novos arquivos ou editar o conteúdo dos arquivos existentes. Veja abaixo:
-
 ```md
 .
 ├── statics
